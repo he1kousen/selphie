@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Selphie — Editorial Photobooth</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Fraunces:ital,wght@0,600;0,700;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed": "#002021",
+                    "secondary-fixed": "#e5e2e1",
+                    "on-tertiary-container": "#f3ffff",
+                    "surface-variant": "#e5e2dd",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "muted": "#6B6660",
+                    "surface-container-high": "#ebe8e3",
+                    "tertiary-fixed-dim": "#86d3d5",
+                    "on-secondary-container": "#636262",
+                    "tertiary-container": "#2d8082",
+                    "primary-fixed": "#ffdbcb",
+                    "on-primary-fixed-variant": "#6e3819",
+                    "surface-bright": "#fcf9f4",
+                    "on-surface-variant": "#53443c",
+                    "tertiary-fixed": "#a2f0f2",
+                    "primary-fixed-dim": "#ffb691",
+                    "on-primary-fixed": "#341100",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed-variant": "#474746",
+                    "on-surface": "#1c1c19",
+                    "primary": "#884c2c",
+                    "on-secondary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#8b4f2e",
+                    "on-primary-container": "#fffbff",
+                    "background": "#fcf9f4",
+                    "primary-container": "#a56441",
+                    "inverse-surface": "#31302d",
+                    "on-background": "#1c1c19",
+                    "surface-dim": "#dcdad5",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#e2dfde",
+                    "tertiary": "#006769",
+                    "error-container": "#ffdad6",
+                    "surface": "#FAF8F4",
+                    "secondary": "#5f5e5e",
+                    "outline": "#85736b",
+                    "surface-container": "#f0ede8",
+                    "outline-variant": "#d8c2b9",
+                    "on-tertiary-fixed-variant": "#004f51",
+                    "surface-container-low": "#f6f3ee",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#ffb691",
+                    "line": "#DAD4C8",
+                    "inverse-on-surface": "#f3f0eb",
+                    "surface-container-highest": "#e5e2dd",
+                    "on-secondary-fixed": "#1c1b1b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "max-width": "1280px",
+                    "margin-mobile": "24px",
+                    "gutter": "24px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "eyebrow": ["Inter"],
+                    "display-lg-mobile": ["Fraunces"],
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Fraunces"],
+                    "display-lg": ["Fraunces"]
+            },
+            "fontSize": {
+                    "eyebrow": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["13px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.04;
+            background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-image-frame {
+            padding: 16px;
+            border: 1px solid #DAD4C8;
+            background-color: #FAF8F4;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<div class="grain-overlay"></div>
+<!-- Navigation -->
+<header class="w-full top-0 left-0 border-b border-line dark:border-outline-variant bg-background dark:bg-background z-50 sticky">
+<nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 max-w-max-width mx-auto">
+<div class="font-display-lg text-headline-md text-on-surface dark:text-inverse-on-surface cursor-pointer transition-transform active:scale-95">
+                Selphie
+            </div>
+<div class="hidden md:flex gap-12 items-center">
+<a class="font-eyebrow text-eyebrow uppercase tracking-widest text-primary font-bold hover:opacity-80 transition-opacity duration-300" href="#">Experience</a>
+<a class="font-eyebrow text-eyebrow uppercase tracking-widest text-secondary dark:text-secondary-fixed hover:opacity-80 transition-opacity duration-300" href="#">Journal</a>
+<a class="font-eyebrow text-eyebrow uppercase tracking-widest text-secondary dark:text-secondary-fixed hover:opacity-80 transition-opacity duration-300" href="#">Gallery</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-on-surface hover:opacity-80 transition-opacity">menu</button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop pt-24 pb-32 grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+<div class="md:col-span-7 flex flex-col items-start gap-8">
+<span class="font-eyebrow text-eyebrow uppercase tracking-widest text-primary">ONLINE PHOTOBOOTH</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface max-w-2xl leading-tight">
+                    Say <span class="italic font-normal">cheese</span>, the <span class="italic font-normal">Selphie</span> way.
+                </h1>
+<p class="font-body-lg text-secondary max-w-lg">
+                    Elevating digital memories into atelier-grade portraits. A minimalist studio experience, delivered to your browser.
+                </p>
+<div class="flex flex-wrap gap-6 mt-4">
+<button class="bg-[#B6724E] text-surface px-10 py-4 rounded-sm font-eyebrow text-eyebrow uppercase tracking-widest hover:opacity-90 transition-all duration-300 active:scale-95">
+                        Mulai Sesi Foto
+                    </button>
+<button class="border border-line text-on-surface px-10 py-4 rounded-sm font-eyebrow text-eyebrow uppercase tracking-widest hover:bg-surface-container transition-all duration-300 active:scale-95">
+                        View Sample
+                    </button>
+</div>
+</div>
+<!-- Hero Image Bento Fragment -->
+<div class="md:col-span-5 w-full mt-12 md:mt-0">
+<div class="editorial-image-frame rotate-1 shadow-sm transition-transform hover:rotate-0 duration-500">
+<img class="w-full grayscale hover:grayscale-0 transition-all duration-1000 aspect-[4/5] object-cover" data-alt="A minimalist high-fashion portrait of a woman with clean aesthetic lighting, captured in a boutique studio setting with soft warm tones. The composition is editorial and sparse, featuring significant white space around the subject to evoke luxury and intentionality. The lighting is soft and high-key, aligning with a premium light-mode design system using beige and soft brown tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHNA5rQwz3bruFRgAEf4UgRx42t3aVIg1zmaW6tI1PNXQDVbAMN4NX2HhhnVB94t4pfYL7cFqAHJpv52QZaTTJYhA-0R248T8WFMtC7BEcaGeiG64IGKRWVz5L6r7iLGVWCj4XJWOP5AurPkiN9zjejNVMkmnq0tKtgVnSCZkBKwRCHoQYXJq0aMfVZssfhRgr0NtCQ-WtaDcYPmtXqqc0IJ1tw2KX6AT486482jCvQsgz8weQI0RMplpDNPyhpfHd_yPBbtsDig"/>
+<div class="mt-4 flex justify-between items-center opacity-60">
+<span class="font-eyebrow text-[10px] tracking-tighter">FILM STRIP #0024</span>
+<span class="font-eyebrow text-[10px] tracking-tighter">OCT 2024</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Divider Line -->
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+<hr class="border-line"/>
+</div>
+<!-- Features Bento Grid -->
+<section class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop py-32 grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-gutter">
+<div class="flex flex-col gap-6">
+<div class="w-12 h-12 flex items-center justify-center border border-line text-primary">
+<span class="material-symbols-outlined">auto_fix_high</span>
+</div>
+<h3 class="font-headline-md text-on-surface">Curated Filters</h3>
+<p class="text-secondary font-body-md">Hand-crafted analog presets designed by professional cinematographers for that timeless film aesthetic.</p>
+</div>
+<div class="flex flex-col gap-6">
+<div class="w-12 h-12 flex items-center justify-center border border-line text-primary">
+<span class="material-symbols-outlined">shutter_speed</span>
+</div>
+<h3 class="font-headline-md text-on-surface">Instant Export</h3>
+<p class="text-secondary font-body-md">Seamlessly download your high-resolution portraits in print-ready formats without losing a single pixel of detail.</p>
+</div>
+<div class="flex flex-col gap-6">
+<div class="w-12 h-12 flex items-center justify-center border border-line text-primary">
+<span class="material-symbols-outlined">gallery_thumbnail</span>
+</div>
+<h3 class="font-headline-md text-on-surface">Private Gallery</h3>
+<p class="text-secondary font-body-md">Your captures are yours alone. Secured in a beautifully minimal private vault for your eyes only.</p>
+</div>
+</section>
+<!-- Featured Gallery (Asymmetric) -->
+<section class="bg-surface-container py-32 overflow-hidden">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row gap-16 items-center">
+<div class="w-full md:w-1/2 order-2 md:order-1">
+<div class="grid grid-cols-2 gap-4">
+<div class="editorial-image-frame -rotate-2">
+<img class="w-full aspect-square object-cover grayscale" data-alt="An artistic close-up of a vintage camera lens with subtle reflections, emphasizing craft and analog photography. The shot is minimalist and clean, utilizing a palette of warm grays and off-whites. The lighting is directional and moody, creating deep contrast and highlighting the intricate textures of the mechanical parts." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMRa8Z_MwdXmL3it7Dhc-eEWSvuoiGFaJ2nKfgKeg2kEjdsq6M7axbF03op-NK7jtUUPMVFNsLg0IrLmh8g1h_p0ReB18w5qUiOxoRrVRvWNUzn6hunTog7n0l9Xmoptwe9Z9NZb6FQeaTFmSNekISWHboTVOz6quSh77VeKfHFxEWGbMglsYjYWNGeh-YTLTxy7_SFDl24jTQ7l7pESvql6J5xrrwyCQqbOhGM643JAA7Oub3QjuUPBGVN8Ihs27vpLNxRgxZNA"/>
+</div>
+<div class="editorial-image-frame translate-y-8 rotate-3">
+<img class="w-full aspect-square object-cover" data-alt="A soft-focus lifestyle photograph of a minimalist studio interior, featuring a single wooden chair and a large window casting soft shadows. The overall mood is peaceful and luxurious, emphasizing the concept of slow living and intentional space. The color palette is dominated by creams, beiges, and natural wood tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn5i3njfrLCtCSW_eh5BHPDHznf3HLWm0YOQeYWjGDgoRHlGTUP-Qk642owUXXYEXTN_tIGnAF_TeYHmyLXfRRD8-4FxFPZCsUV0SxDAcJn-YUfm-eOkrEWgQd7aF8cSE1iBNNkE3a0zoNv836sqdvKD5GaTYiGKFGWj6NlUyesbqtBT4nCLfTpoqqt48uJ-jO3MY7IUaG9xkdZq5p80XYeaq67Sb2gMpZ4p0FRIxMWiyoTUG_7LQWltWPnT075AirQwIVsljRxA"/>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2 order-1 md:order-2 flex flex-col items-start gap-8">
+<span class="font-eyebrow text-eyebrow uppercase tracking-widest text-primary">The Collective</span>
+<h2 class="font-headline-md text-display-lg-mobile md:text-headline-md text-on-surface">Capturing the <br/><span class="italic">Essence</span> of Now.</h2>
+<p class="text-secondary font-body-lg">Every frame tells a story. Our technology is invisible, so your personality can be the main character.</p>
+<a class="text-on-surface border-b border-on-surface font-eyebrow text-eyebrow uppercase tracking-widest pb-1 hover:opacity-60 transition-opacity" href="#">Browse the Archive</a>
+</div>
+</div>
+</section>
+<!-- Call to Action Banner -->
+<section class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop py-32 text-center">
+<div class="border border-line py-24 px-12 bg-background flex flex-col items-center gap-8 relative overflow-hidden">
+<h2 class="font-headline-md text-display-lg-mobile md:text-headline-md text-on-surface z-10">Ready for your close-up?</h2>
+<p class="text-secondary font-body-md max-w-md z-10">Start your curated photo session now. No registration required for your first three captures.</p>
+<button class="bg-[#B6724E] text-surface px-12 py-4 rounded-sm font-eyebrow text-eyebrow uppercase tracking-widest hover:opacity-90 transition-all duration-300 z-10">
+                    Launch Studio
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-line dark:border-outline-variant bg-surface dark:bg-surface-dim">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-12 max-w-max-width mx-auto gap-8">
+<div class="font-display-lg text-headline-md text-on-surface">Selphie</div>
+<div class="flex flex-wrap justify-center gap-8 font-body-md text-label-sm text-secondary">
+<a class="hover:text-primary transition-colors duration-300" href="#">Privacy</a>
+<a class="hover:text-primary transition-colors duration-300" href="#">Terms</a>
+<a class="hover:text-primary transition-colors duration-300" href="#">Gallery</a>
+<a class="hover:text-primary transition-colors duration-300" href="#">Contact</a>
+</div>
+<div class="font-body-md text-label-sm text-secondary dark:text-secondary-fixed">
+                © 2024 Selphie Studio. All rights reserved.
+            </div>
+</div>
+</footer>
+<script>
+        // Subtle micro-interaction for image frames
+        document.querySelectorAll('.editorial-image-frame').forEach(frame => {
+            frame.addEventListener('mouseenter', () => {
+                frame.style.transform = 'scale(1.02) rotate(0deg)';
+                frame.style.zIndex = '20';
+            });
+            frame.addEventListener('mouseleave', () => {
+                frame.style.transform = '';
+                frame.style.zIndex = '';
+            });
+        });
+
+        // Simple smooth entrance animation for text
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('translate-y-4');
+                    entry.target.classList.remove('opacity-0');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('h1, h2, h3, p, .editorial-image-frame').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'ease-out', 'opacity-0', 'translate-y-4');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

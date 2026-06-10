@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#6e3819",
+                    "outline-variant": "#d8c2b9",
+                    "line": "#DAD4C8",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#2d8082",
+                    "secondary-container": "#e2dfde",
+                    "surface-container-highest": "#e5e2dd",
+                    "surface-container-low": "#f6f3ee",
+                    "surface-container-high": "#ebe8e3",
+                    "on-primary-fixed": "#341100",
+                    "error-container": "#ffdad6",
+                    "secondary": "#5f5e5e",
+                    "primary-fixed-dim": "#ffb691",
+                    "muted": "#6B6660",
+                    "surface-variant": "#e5e2dd",
+                    "surface-tint": "#8b4f2e",
+                    "tertiary": "#006769",
+                    "primary-fixed": "#ffdbcb",
+                    "on-tertiary-fixed": "#002021",
+                    "inverse-primary": "#ffb691",
+                    "background": "#fcf9f4",
+                    "secondary-fixed": "#e5e2e1",
+                    "on-primary-container": "#fffbff",
+                    "outline": "#85736b",
+                    "surface-dim": "#dcdad5",
+                    "on-background": "#1c1c19",
+                    "inverse-surface": "#31302d",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#1c1c19",
+                    "tertiary-fixed-dim": "#86d3d5",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#f0ede8",
+                    "surface": "#FAF8F4",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#a2f0f2",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "on-surface-variant": "#53443c",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#a56441",
+                    "primary": "#884c2c",
+                    "surface-bright": "#fcf9f4",
+                    "on-tertiary-container": "#f3ffff",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "on-secondary-fixed-variant": "#474746",
+                    "inverse-on-surface": "#f3f0eb",
+                    "on-tertiary-fixed-variant": "#004f51",
+                    "on-secondary-container": "#636262",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "max-width": "1280px",
+                    "margin-mobile": "24px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Fraunces"],
+                    "eyebrow": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Fraunces"],
+                    "display-lg-mobile": ["Fraunces"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "eyebrow": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "display-lg": ["72px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["13px", {"lineHeight": "1.0", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>.noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDC1u3w15FQ4ZVZXjhGq2W65bPPVQTtBCcAiZEi-tP4LQ9p3Lfei9NCuGzv-1H309JRNv8RsIrJ_WQB1LGMZg8VEQc38uOUoUKGNj2OsU-iaBMlvtycT2T9Iv2AssoMe5vufmQFF28-ApGAOQShy7U9PqFsTX-QrcHzgl1l6UO9-gN9wN7eNrz_TwNgEuYnnasb1EPbN5hRiwVzJvSu2skctcCpXhaQTTDQFboZAPMEBdBN-kcr6jN_jtp0XTDtIEj9o61MAoslYQ);
+    z-index: 9999
+    }
+.film-strip-border {
+    border: 1px solid #DAD4C8
+    }
+.mat-padding {
+    padding: 24px
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24
+    }</style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<div class="noise-overlay"></div>
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-background border-b border-line z-50">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 max-w-max-width mx-auto">
+<h1 class="text-headline-md font-headline-md text-on-surface tracking-tighter">Selphie</h1>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-90 transition-opacity duration-300" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center py-16 md:py-24 px-margin-mobile">
+<!-- Success State Eyebrow -->
+<div class="mb-12 text-center">
+<span class="text-eyebrow font-eyebrow text-primary uppercase mb-4 block">Sesi Selesai</span>
+<h2 class="text-headline-md font-headline-md text-on-surface">Karya Seni Anda Telah Siap</h2>
+</div>
+<!-- Photo Strip Gallery Container -->
+<div class="relative group max-w-4xl w-full mx-auto mb-16">
+<!-- The "Atelier" Film Strip -->
+<div class="bg-surface film-strip-border mat-padding shadow-sm relative overflow-hidden transition-all duration-500 hover:shadow-md">
+<!-- Film Serial Metadata -->
+<div class="flex justify-between items-center mb-6 px-2">
+<span class="text-eyebrow font-eyebrow text-muted">FRAME SET // 0042-S</span>
+<span class="text-eyebrow font-eyebrow text-muted">SELPHIE ATELIER © 2024</span>
+</div>
+<!-- Three Image Strip -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Photo 1 -->
+<div class="aspect-[3/4] overflow-hidden bg-surface-container border border-line relative">
+<img alt="Portrait" class="w-full h-full object-cover filter grayscale-[20%]" data-alt="A sophisticated editorial portrait of a young woman with a serene expression, posed in a minimalist studio. The lighting is soft and cinematic, highlighting the textures of her high-fashion linen clothing. The color palette is composed of warm taupes, bone whites, and deep umber shadows, maintaining a luxury boutique photography aesthetic with a clean, gallery-like composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDD56x9RM9DFGBcH5AP-ZKkHWYVTeGJs4bLR5eZDYggJ10ESs3RK0qXJICMv2azacvSgdUfTzif61BAupyDY80qxQaNqNNbfIrL1MrB1d4u06r9Dw3SqBZ9Hu-7j_zprxiad6PuVa1BI_fEypynzSVrXBQKGlNKvw7Zrg0K0ULQHb7U3o8OZEKC6DhFJkc9BKkhfGoOa9OSjMljKS_wwoy_MRcAhlG9xwuxKnxTynMIUfx6QEIwB0p9WMcsjW67fkXCCChmxnopA"/>
+<div class="absolute bottom-2 left-2 text-[10px] font-eyebrow text-white/50">SLPH-01</div>
+</div>
+<!-- Photo 2 -->
+<div class="aspect-[3/4] overflow-hidden bg-surface-container border border-line relative">
+<img alt="Portrait" class="w-full h-full object-cover filter grayscale-[20%]" data-alt="A high-end editorial headshot of a man with strong features, captured in a minimalist studio setting with dramatic side lighting. The mood is calm and artistic, utilizing a color palette of soft creams, sandy beiges, and rich chocolate browns. The image features a shallow depth of field, emphasizing the fine details of the subject's face against a clean, off-white background in an atelier style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsLiNb93by-0ddqELsddJWseXza9BGjLP2eVau_sJtfyBt-y-ozChiWXVPnX6zuS4Giqsrp3Z-d8EGkK5nyMDP6ExRlSBcCwgwqpCOe_yINPZf1Eq5VE7KMyGAyC7mrFu3uJHd1DWmnejJ4lw2kFbvqqcUux4OJv8fCJzmA4H9ArhJbX5WdsvCEesg5b7IkeRV78Cu-ZXolc3yIwIyLyFUOUVFoRd3xiT4Yl33plSqq3bUoM-VNZQrnLVCLOE9wITmzfmFllt0xA"/>
+<div class="absolute bottom-2 left-2 text-[10px] font-eyebrow text-white/50">SLPH-02</div>
+</div>
+<!-- Photo 3 -->
+<div class="aspect-[3/4] overflow-hidden bg-surface-container border border-line relative">
+<img alt="Portrait" class="w-full h-full object-cover filter grayscale-[20%]" data-alt="A striking fashion-forward portrait of a person with a creative pose, set against a monochromatic warm-toned backdrop. The lighting is diffused and professional, creating an atmosphere of quiet luxury. The visual style is rooted in modern minimalism, with a focus on form and texture, using a color palette of ivory, muted terracotta, and deep charcoal, perfectly suited for an editorial photobook." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZI3Gw8gxmbvOyo9tpr8ZRlN354R7vyTgUuBlS7bOfJ_3bv5X1KDwrp9UHSfnZNML8dQQ4ZIwdRjC2-ImlKubGA-MYS0vESIGGOyatzzvX84S5qy0SUoDOplNWAJTzINgqdnNQJyqOmGZIf26GBCjp060DkEjYkKCU_xCR1zk4TXtUCA4iGfn9RH9UE65K3NWAdzn6EupEKQ6z-Q_zSDijo0N860D_pajaBtgnD-zKFnwGr6YyQ72tr1kmQPvCdwsnPtwQ0R9HLw"/>
+<div class="absolute bottom-2 left-2 text-[10px] font-eyebrow text-white/50">SLPH-03</div>
+</div>
+</div>
+<!-- Bottom Metadata -->
+<div class="mt-6 flex justify-center">
+<div class="h-4 w-px bg-line"></div>
+</div>
+</div>
+<!-- Decorative "Tape" elements for the gallery look -->
+<div class="hidden md:block absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-8 bg-surface-container-highest/40 backdrop-blur-sm border border-line/30 rotate-1"></div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col items-center gap-6 w-full max-w-sm">
+<button class="w-full py-5 px-8 bg-primary text-surface font-eyebrow text-eyebrow uppercase tracking-[0.2em] transition-all duration-300 hover:opacity-90 active:scale-95 flex justify-center items-center gap-3">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+                Unduh Hasil
+            </button>
+<button class="w-full py-5 px-8 border border-line text-on-surface font-eyebrow text-eyebrow uppercase tracking-[0.2em] transition-all duration-300 hover:bg-surface-container-low active:scale-95 flex justify-center items-center gap-3">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+                Sesi Baru
+            </button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container-low border-t border-line">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-16 gap-gutter max-w-max-width mx-auto">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="text-headline-md font-headline-md text-on-surface">Selphie</span>
+<p class="text-label-sm font-label-sm text-muted">© 2024 Selphie Atelier. All rights reserved.</p>
+</div>
+<nav class="flex gap-8">
+<a class="text-body-md font-body-md text-muted hover:text-primary transition-colors duration-200" href="#">Studio</a>
+<a class="text-body-md font-body-md text-muted hover:text-primary transition-colors duration-200" href="#">Templates</a>
+<a class="text-body-md font-body-md text-muted hover:text-primary transition-colors duration-200" href="#">Gallery</a>
+<a class="text-body-md font-body-md text-muted hover:text-primary transition-colors duration-200" href="#">About</a>
+</nav>
+</div>
+</footer>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+            });
+        });
+
+        // Add a subtle parallax effect to the photo strip
+        window.addEventListener('mousemove', (e) => {
+            const strip = document.querySelector('.film-strip-border');
+            if (strip) {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 100;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 100;
+                strip.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            }
+        });
+    </script>
+</body></html>
