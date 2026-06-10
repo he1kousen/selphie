@@ -70,16 +70,16 @@ export default function StudioView({ onNext, onBack }) {
     <div className="bg-bg text-ink font-body h-screen flex flex-col overflow-hidden">
       <Header stepText="Langkah 2 dari 3" onBack={!isCapturing ? onBack : undefined} />
 
-      <main className="flex-grow flex flex-col md:flex-row min-h-0">
+      <main className="flex-grow flex flex-col md:flex-row min-h-0 overflow-hidden">
 
         {/* ── Left: Camera & Controls ── */}
-        <section className="flex-grow flex flex-col min-h-0 bg-surface-container-lowest">
+        <section className="flex-grow flex flex-col items-center justify-start min-h-0 bg-surface-container-lowest overflow-y-auto md:overflow-hidden px-4 md:px-0">
 
-          {/* Camera Viewport — takes all available space */}
-          <div className="flex-grow relative min-h-0 m-3 md:m-6 rounded-lg overflow-hidden border border-line/30">
+          {/* Camera Viewport — direct strip-shaped preview */}
+          <div className="relative w-full max-w-[92vw] sm:max-w-[520px] md:max-w-[420px] lg:max-w-[520px] aspect-[4/5] md:aspect-[1/3] max-h-[86vh] m-2 md:m-6 rounded-lg overflow-hidden border border-line/30 mx-auto bg-surface">
             <CameraView
               ref={videoRef}
-              className="absolute inset-0 w-full h-full"
+              className="absolute inset-0"
               style={{ filter: filter !== 'none' ? filter : undefined }}
             />
 
@@ -90,17 +90,17 @@ export default function StudioView({ onNext, onBack }) {
           </div>
 
           {/* Controls Bar */}
-          <div className="shrink-0 px-4 md:px-8 pb-4 md:pb-6 pt-2 flex flex-col items-center gap-3">
+          <div className="shrink-0 px-4 md:px-8 pb-4 md:pb-6 pt-2 flex flex-col items-center gap-3 w-full max-w-[92vw] sm:max-w-[520px] md:max-w-[420px] lg:max-w-[520px] mx-auto">
 
             {/* Shot Counter + Filters + ISO */}
-            <div className="flex w-full max-w-3xl justify-between items-center">
-              <div className="w-28 md:w-32">
+            <div className="flex flex-col md:flex-row w-full justify-between items-center gap-3 md:gap-0">
+              <div className="w-full md:w-auto text-center md:text-left">
                 <span className="font-display text-headline-md text-ink leading-none">
                   Shot {Math.min(photos.length + 1, maxSlots)} / {maxSlots}
                 </span>
               </div>
 
-              <div className="flex gap-4 md:gap-6 justify-center">
+              <div className="flex flex-wrap gap-3 justify-center md:justify-center md:gap-6">
                 {filters.map(f => (
                   <button
                     key={f.id}
@@ -117,7 +117,7 @@ export default function StudioView({ onNext, onBack }) {
                 ))}
               </div>
 
-              <div className="w-28 md:w-32 flex justify-end">
+              <div className="w-full md:w-28 flex justify-center md:justify-end">
                 <span className="font-body text-label-caps text-muted uppercase tracking-eyebrow">ISO 400</span>
               </div>
             </div>
@@ -147,81 +147,46 @@ export default function StudioView({ onNext, onBack }) {
               </div>
             )}
 
-            {/* Thumbnail Row */}
-            <div className="flex gap-3 items-start">
-              {Array.from({ length: maxSlots }).map((_, i) => (
-                <div key={i} className="flex flex-col items-center gap-1.5">
-                  <div className={`w-14 h-[70px] md:w-16 md:h-20 overflow-hidden rounded-sm flex items-center justify-center transition-all duration-300 ${
-                    photos[i]
-                      ? 'bg-surface border border-line/50 shadow-sm'
-                      : 'bg-surface-container border border-dashed border-line'
-                  }`}>
-                    {photos[i] ? (
-                      <img
-                        src={photos[i]}
-                        alt={`Shot ${i + 1}`}
-                        className="w-full h-full object-cover"
-                        style={{ filter: filter !== 'none' ? filter : undefined }}
-                      />
-                    ) : (
-                      <span className="font-body text-label-caps text-muted/60">{i + 1}</span>
-                    )}
+            {/* Thumbnail Row + Mobile Strip Preview */}
+            <div className="flex flex-col gap-6 items-center w-full">
+              {/* Desktop Thumbnails */}
+              <div className="flex gap-3 items-start">
+                {Array.from({ length: maxSlots }).map((_, i) => (
+                  <div key={i} className="flex flex-col items-center gap-1.5">
+                    <div className={`w-14 h-[70px] md:w-16 md:h-20 overflow-hidden rounded-sm flex items-center justify-center transition-all duration-300 ${
+                      photos[i]
+                        ? 'bg-surface border border-line/50 shadow-sm'
+                        : 'bg-surface-container border border-dashed border-line'
+                    }`}>
+                      {photos[i] ? (
+                        <img
+                          src={photos[i]}
+                          alt={`Shot ${i + 1}`}
+                          className="w-full h-full object-cover"
+                          style={{ filter: filter !== 'none' ? filter : undefined }}
+                        />
+                      ) : (
+                        <span className="font-body text-label-caps text-muted/60">{i + 1}</span>
+                      )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
 
-              {/* Retake button beside thumbnails when done */}
-              {isDone && (
-                <button
-                  onClick={handleRetake}
-                  className="self-center ml-2 font-body text-[10px] text-muted hover:text-ink flex items-center gap-1 transition-colors duration-300 whitespace-nowrap"
-                >
-                  <span className="material-symbols-outlined text-[14px]">refresh</span>
-                  Retake
-                </button>
-              )}
+                {/* Retake button beside thumbnails when done */}
+                {isDone && (
+                  <button
+                    onClick={handleRetake}
+                    className="self-center ml-2 font-body text-[10px] text-muted hover:text-ink flex items-center gap-1 transition-colors duration-300 whitespace-nowrap"
+                  >
+                    <span className="material-symbols-outlined text-[14px]">refresh</span>
+                    Retake
+                  </button>
+                )}
+              </div>
+
             </div>
           </div>
         </section>
-
-        {/* ── Right: Strip Preview Sidebar ── */}
-        <aside className="hidden md:flex w-[320px] lg:w-[360px] bg-surface flex-col border-l border-line shrink-0 overflow-y-auto items-center py-8 px-6">
-          <h2 className="font-display text-headline-md text-ink mb-8 text-center">Simple Strip</h2>
-
-          {/* Film strip card */}
-          <div className="w-[180px] bg-white border border-line shadow-sm p-3 flex flex-col gap-2 relative transition-transform duration-300 hover:scale-[1.02]">
-            {/* Strip header label */}
-            <div className="text-center font-body text-[9px] text-muted tracking-[0.2em] uppercase py-1">
-              SELPHIE
-            </div>
-
-            {/* Frames */}
-            {Array.from({ length: maxSlots }).map((_, i) => (
-              <div
-                key={i}
-                className={`w-full aspect-[3/4] overflow-hidden transition-all duration-300 ${
-                  photos[i]
-                    ? 'bg-ink/5 border border-line/30'
-                    : 'bg-surface-container border border-dashed border-line/60 flex items-center justify-center'
-                }`}
-              >
-                {photos[i] ? (
-                  <img
-                    src={photos[i]}
-                    alt={`Shot ${i + 1}`}
-                    className="w-full h-full object-cover"
-                    style={{ filter: filter !== 'none' ? filter : undefined }}
-                  />
-                ) : (
-                  <span className="font-body text-label-caps text-muted/40">{i + 1}</span>
-                )}
-              </div>
-            ))}
-
-            {/* Bottom space for film strip look */}
-            <div className="h-8" />
-          </div>
-        </aside>
       </main>
     </div>
   );

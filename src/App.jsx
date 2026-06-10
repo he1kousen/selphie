@@ -1,4 +1,4 @@
-import React, { useState, Suspense, lazy } from 'react';
+import React, { useState, Suspense, lazy, useEffect } from 'react';
 import LandingView from './components/LandingView';
 
 const TemplatePickerView = lazy(() => import('./components/TemplatePickerView'));
@@ -8,6 +8,38 @@ const ResultView = lazy(() => import('./components/ResultView'));
 function App() {
   const [currentView, setCurrentView] = useState('landing');
   const [finalImage, setFinalImage] = useState(null);
+
+  // Handle browser back/forward button via popstate
+  useEffect(() => {
+    const handlePopState = (event) => {
+      if (event.state && event.state.view) {
+        setCurrentView(event.state.view);
+        if (event.state.finalImage) {
+          setFinalImage(event.state.finalImage);
+        }
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Push state to history whenever view changes
+  useEffect(() => {
+    const state = { view: currentView };
+    if (finalImage) {
+      state.finalImage = finalImage;
+    }
+    window.history.pushState(state, '', `#${currentView}`);
+  }, [currentView, finalImage]);
+
+  // Navigation handlers with history tracking
+  const navigateTo = (view, image = null) => {
+    if (image) {
+      setFinalImage(image);
+    }
+    setCurrentView(view);
+  };
 
   // A simple fallback UI
   const Fallback = () => (
@@ -23,24 +55,24 @@ function App() {
 
       <Suspense fallback={<Fallback />}>
         {currentView === 'landing' && (
-          <LandingView onNext={() => setCurrentView('picker')} />
+          <LandingView onNext={() => navigateTo('picker')} />
         )}
         {currentView === 'picker' && (
           <TemplatePickerView
-            onNext={() => setCurrentView('studio')}
-            onBack={() => setCurrentView('landing')}
+            onNext={() => navigateTo('studio')}
+            onBack={() => navigateTo('landing')}
           />
         )}
         {currentView === 'studio' && (
           <StudioView
-            onNext={(img) => { setFinalImage(img); setCurrentView('result'); }}
-            onBack={() => setCurrentView('picker')}
+            onNext={(img) => navigateTo('result', img)}
+            onBack={() => navigateTo('picker')}
           />
         )}
         {currentView === 'result' && (
           <ResultView
             finalImage={finalImage}
-            onRestart={() => setCurrentView('landing')}
+            onRestart={() => navigateTo('landing')}
           />
         )}
       </Suspense>

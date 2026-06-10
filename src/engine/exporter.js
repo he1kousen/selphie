@@ -1,4 +1,4 @@
-export function downloadDataUrl(dataUrl, filename = 'selphie-strip.png') {
+export function downloadDataUrl(dataUrl, filename = 'photo-strip.png') {
   // Convert dataURL to Blob (optional but cleaner than direct dataURL download for large files)
   const arr = dataUrl.split(',');
   const mime = arr[0].match(/:(.*?);/)[1];

@@ -5,7 +5,7 @@ import { downloadDataUrl } from '../engine/exporter';
 export default function ResultView({ finalImage, onRestart }) {
   const handleDownload = () => {
     if (finalImage) {
-      downloadDataUrl(finalImage, 'selphie-strip.png');
+      downloadDataUrl(finalImage, 'photo-strip.png');
     }
   };
 
@@ -21,12 +21,12 @@ export default function ResultView({ finalImage, onRestart }) {
         {/* Wordmark (reference shows it between header and heading) */}
         <div className="pt-10 md:pt-16 pb-4 md:pb-6">
           <span className="font-display text-headline-lg-mobile text-ink italic tracking-tight select-none">
-            Selphie
+            Studio
           </span>
         </div>
 
         {/* Heading */}
-        <h1 className="font-display text-headline-lg-mobile md:text-headline-lg text-ink mb-10 md:mb-14 text-center">
+        <h1 className="font-display text-headline-md md:text-headline-lg text-ink mb-10 md:mb-14 text-center">
           Sesi Selesai
         </h1>
 
