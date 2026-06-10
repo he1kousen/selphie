@@ -38,13 +38,21 @@ export default function Header({ stepText, onBack, variant = 'default' }) {
         />
       </div>
 
-      {/* Right — Step Indicator */}
-      <div className="flex-1 flex justify-end min-w-0">
+      {/* Right — Step Indicator + GitHub */}
+      <div className="flex-1 flex justify-end items-center gap-3 min-w-0">
         {stepText && (
           <span className="font-body text-[11px] text-muted uppercase tracking-eyebrow whitespace-nowrap">
             {stepText}
           </span>
         )}
+        <a
+          href="https://github.com/he1kousen/selphie"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="font-body text-[11px] uppercase tracking-eyebrow text-ink border border-line/60 px-3 py-2 rounded transition-colors duration-300 hover:bg-line hover:text-ink"
+        >
+          GitHub
+        </a>
       </div>
     </header>
   );

@@ -76,6 +76,9 @@ function App() {
           />
         )}
       </Suspense>
+      <footer className="w-full bg-surface/80 border-t border-line/70 text-center text-muted text-[12px] py-3">
+        Made with love by he1kousen
+      </footer>
     </>
   );
 }
